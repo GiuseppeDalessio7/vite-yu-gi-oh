@@ -28,15 +28,15 @@ export default {
                 <option value="Monster">Monster </option>
             </select>
         </form>
-        <div class="container">
-            <h3 class="m-auto bg-black text-white py-2"> Found 39 cards</h3>
+        <div class="container p-5 bg-light">
+            <h3 class="m-auto bg-black text-white fs-6 p-3 py-2"> Found 39 cards</h3>
             <div class="bg-white container g-0">
-                <div class="row  ">
-                    <div id="orange" class="col-3 pb-4 " v-for="card in store.cards">
-                        <div class="d-flex flex-column">
+                <div id="orange" class="row cols-1 row-cols-sm-5 ">
+                    <div class="col pb-4 bg-light " v-for="card in store.cards">
+                        <div id="orange" class="d-flex flex-column ">
                             <img :src="card.card_images[0].image_url" alt="">
-                            <h3 class="text-center text-white py-3">{{ card.name }}</h3>
-                            <div class="text-center pb-3">Alien</div>
+                            <h5 class="text-center text-white py-2">{{ card.name }}</h5>
+                            <div class="text-center pb-2">Alien</div>
                         </div>
                     </div>
 
