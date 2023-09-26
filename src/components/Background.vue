@@ -28,8 +28,8 @@ export default {
                 <option value="Monster">Monster </option>
             </select>
         </form>
-        <div class="container p-5 bg-light">
-            <h3 class="m-auto bg-black text-white fs-6 p-3 py-2"> Found 39 cards</h3>
+        <div class="container p-2,5 pt-5 bg-light">
+            <h3 class=" container bg-black text-white fs-6 p-3 "> Found 39 cards</h3>
             <div class="bg-white container g-0">
                 <div id="orange" class="row cols-1 row-cols-sm-5 ">
                     <div class="col pb-4 bg-light " v-for="card in store.cards">
@@ -50,6 +50,12 @@ export default {
 </template>
 
 <style scoped>
+* {
+
+
+    box-sizing: border-box;
+}
+
 #myselect {
     width: 8rem;
     border-radius: 5px;
