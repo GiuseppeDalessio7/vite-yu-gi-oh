@@ -1,12 +1,24 @@
 <script >
+import { store } from '../store.js';
+
 export default {
+    name: "background",
     data() {
         return {
-            data
+            store,
         }
+    },
+
+    created() {
+        store.fetchData();
+
     }
 }
 </script>
+
+
+
+
 
 <template>
     <div class=" mycolor ">
@@ -17,18 +29,22 @@ export default {
             </select>
         </form>
         <div class="container">
-            <div class="row row-cols-1 row-cols-sm-5">
-                <div class="col" v-for="name in data">
-                    <div class="card">
-                        <img :src="name.url" alt="">
-                        <div class="card-body">
-                            <p>{{ name.name }}</p>
+            <h3 class="m-auto bg-black text-white py-2"> Found 39 cards</h3>
+            <div class="bg-white container g-0">
+                <div class="row  ">
+                    <div id="orange" class="col-3 pb-4 " v-for="card in store.cards">
+                        <div class="d-flex flex-column">
+                            <img :src="card.card_images[0].image_url" alt="">
+                            <h3 class="text-center text-white py-3">{{ card.name }}</h3>
+                            <div class="text-center pb-3">Alien</div>
                         </div>
                     </div>
 
                 </div>
 
+
             </div>
+
         </div>
     </div>
 </template>
@@ -45,5 +61,9 @@ export default {
     background-color: #d48f38;
     width: 100%;
     height: 100%;
+}
+
+#orange {
+    background-color: #d48f38;
 }
 </style>

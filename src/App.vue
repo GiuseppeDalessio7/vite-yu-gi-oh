@@ -7,22 +7,13 @@ export default {
   name: "App",
   components: {
     Background,
-
-
   },
   data() {
     return {
-      base_url: "https://db.ygoprodeck.com/api/v7/cardinfo.php?num=10&offset=0",
-      archetype: null,
 
     }
   },
-  created() {
-    axios.get(this.base_url)
-      .then(response => {
-        console.log(response.data);
-      })
-  }
+
 }
 
 
