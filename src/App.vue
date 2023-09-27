@@ -1,5 +1,4 @@
 <script >
-import axios from "axios"
 import Background from "../src/components/Background.vue"
 
 

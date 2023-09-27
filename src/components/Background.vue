@@ -20,28 +20,24 @@ export default {
     },
 
     methods: {
-        searchArchetyp() {
-            const url = 'https://db.ygoprodeck.com/api/v7/cardinfo.php' + '?archetype=Alien';
+        searchArchetype() {
+            const myurl = this.store.base_url + `&archetype=${card.archetype}`
+            this.store.fetchData(myurl)
+            console.log(this.store.card.archetype, searchArchetype);
+            // console.log(myurl);
         }
     }
 
 
 }
 
-
-
-
 </script>
-
-
-
-
 
 <template>
     <div class=" mycolor ">
         <form class="p-2">
-            <select id="myselect" @change="searchArchetyp()">
-                <option selected>Choose Archetyp</option>
+            <select id="myselect" @cambiaArchetipo="searchArchetype()">
+                <option selected>Choose Archetype</option>
                 <option value="Alien">Alien</option>
                 <option value="Noble Knight">Noble Knight</option>
                 <option value="Tainted Treasure">Tainted Treasure</option>
@@ -72,12 +68,6 @@ export default {
 </template>
 
 <style scoped>
-* {
-
-
-    box-sizing: border-box;
-}
-
 #myselect {
     width: 12rem;
     border-radius: 5px;
