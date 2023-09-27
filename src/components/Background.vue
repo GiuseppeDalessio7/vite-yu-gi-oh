@@ -53,8 +53,7 @@ export default {
         <div class="container p-2,5 pt-5 bg-light">
             <h3 class=" container bg-black text-white fs-6 p-3 "> Found 39 cards</h3>
             <div class="bg-white container g-0">
-                <div id="orange" class="row cols-1 row-cols-sm-5 ">
-
+                <div id="orange" class="row cols-1 row-cols-sm-5 bg-white">
                     <generateCard :card="card" v-for="card in store.cards"></generateCard>
 
                 </div>
