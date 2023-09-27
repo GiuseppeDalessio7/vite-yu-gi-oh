@@ -5,12 +5,18 @@ import generateCard from '../components/generateCard.vue'
 export default {
     name: "background",
     components: {
-        generateCard
+        generateCard,
+
+
+
     },
     data() {
         return {
             store,
             activeimage: 0,
+            props: {
+                card: Object,
+            },
         }
     },
 
@@ -21,9 +27,10 @@ export default {
 
     methods: {
         searchArchetype() {
-            const myurl = this.store.base_url + `&archetype=${card.archetype}`
+            const myurl = this.store.base_url + `&archetype=${searchArchetype()}`
             this.store.fetchData(myurl)
-            console.log(this.store.card.archetype, searchArchetype);
+            console.log(this.store.card.archetype, searchArchetype());
+
             // console.log(myurl);
         }
     }
@@ -36,7 +43,7 @@ export default {
 <template>
     <div class=" mycolor ">
         <form class="p-2">
-            <select id="myselect" @cambiaArchetipo="searchArchetype()">
+            <select id="myselect" @change="searchArchetype()">
                 <option selected>Choose Archetype</option>
                 <option value="Alien">Alien</option>
                 <option value="Noble Knight">Noble Knight</option>

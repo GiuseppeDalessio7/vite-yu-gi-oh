@@ -24,6 +24,6 @@ export default {
 
 <style  scoped>
 .bg_orange {
-    background-color: orange;
+    background-color: #d48f38;
 }
 </style>
