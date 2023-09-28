@@ -7,7 +7,7 @@ export default {
     name: "background",
     components: {
         generateCard,
-        searchApp
+        searchApp,
 
 
 
@@ -19,7 +19,7 @@ export default {
             props: {
                 card: Object,
             },
-            emits: ['mySearch']
+            emits: ['my-Search']
         }
     },
 
@@ -50,7 +50,8 @@ export default {
 
         <searchApp @my-search="searchArchetype()"></searchApp>
         <div class="container p-2,5 pt-5 bg-light">
-            <h3 class=" container bg-black text-white fs-6 p-3 "> Found 39 cards</h3>
+            <h3 class=" container bg-black text-white fs-6 p-3 ">Numero di pagine disponibili per la ricerca {{ store.result
+            }}</h3>
             <div class="bg-white container g-0">
                 <div id="orange" class="row cols-1 row-cols-sm-5 bg-white">
                     <generateCard :card="card" v-for="card in store.cards"></generateCard>
