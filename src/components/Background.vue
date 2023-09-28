@@ -1,11 +1,13 @@
 <script >
 import { store } from '../store.js';
 import generateCard from '../components/generateCard.vue'
+import searchApp from '../components/searchApp.vue'
 
 export default {
     name: "background",
     components: {
         generateCard,
+        searchApp
 
 
 
@@ -17,6 +19,7 @@ export default {
             props: {
                 card: Object,
             },
+            emits: ['mySearch']
         }
     },
 
@@ -27,9 +30,11 @@ export default {
 
     methods: {
         searchArchetype() {
-            const myurl = this.store.base_url + `&archetype=${searchArchetype()}`
-            this.store.fetchData(myurl)
-            console.log(this.store.card.archetype, searchArchetype());
+            // base_url: "https://db.ygoprodeck.com/api/v7/cardinfo.php?num=15&offset=0",
+
+            const myurl = 'https://db.ygoprodeck.com/api/v7/cardinfo.php' + `?archetype=${store.selectArchetype}`
+            this.store.base_url = myurl + '&num=20&offset=0'
+            store.fetchData(myurl)
 
             // console.log(myurl);
         }
@@ -42,17 +47,8 @@ export default {
 
 <template>
     <div class=" mycolor ">
-        <form class="p-2">
-            <select id="myselect" @change="searchArchetype()">
-                <option selected>Choose Archetype</option>
-                <option value="Alien">Alien</option>
-                <option value="Noble Knight">Noble Knight</option>
-                <option value="Tainted Treasure">Tainted Treasure</option>
-                <option value="Melodious">Melodious</option>
-                <option value="Archfiend">Archfiend</option>
-            </select>
 
-        </form>
+        <searchApp @my-search="searchArchetype()"></searchApp>
         <div class="container p-2,5 pt-5 bg-light">
             <h3 class=" container bg-black text-white fs-6 p-3 "> Found 39 cards</h3>
             <div class="bg-white container g-0">
@@ -75,13 +71,6 @@ export default {
 </template>
 
 <style scoped>
-#myselect {
-    width: 12rem;
-    border-radius: 5px;
-    margin-left: 6rem;
-    margin-bottom: 1rem;
-}
-
 .mycolor {
     background-color: #d48f38;
     width: 100%;
